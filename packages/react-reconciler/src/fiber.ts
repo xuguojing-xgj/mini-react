@@ -1,10 +1,16 @@
 
-// FiberNode(虚拟 DOM 在 React 中的实现);
+// FiberNode 数据结构(虚拟 DOM 在 React 中的实现);
+
+// 运行时核心模块 reconcile(协调器) -> renderer(渲染器) 来调用宿主环境的 API (例如: DOM API CSSOM API) (diff 算法)
 
 import { Props, Key, Ref } from 'shared/ReactTypes';
 
 import { WorkTag } from './workTags';
 
+// 当前存放 FiberNode 的字段 也就是新的数据结构
+// - 实现新的数据结构用于 React Element 与真实的 UI 节点之间比较
+// - 表达节点(FiberNode)之间的关系
+// - 方便拓展(React Element 数据结构是不方便拓展的)
 export class FiberNode {
     tag: any;
     key: Key;
@@ -20,7 +26,7 @@ export class FiberNode {
 
     memoizedProps: Props | null;
     // 构造函数
-    // pendingProps: FiberNode 中需要改变的 Props
+    // pendingProps: FiberNode 中有哪些类型需要改变  (类型为 Props)
     // key: ReactElement 中的 Key
     // tag: FiberNode 类型的节点
     constructor(tag: WorkTag, pendingProps: Props, key: Key) {

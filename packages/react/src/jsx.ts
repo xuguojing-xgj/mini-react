@@ -5,7 +5,7 @@ import { REACT_ELEMENT_TYPE } from 'shared/ReactSmybols';
 import { Type, Key, Ref, Props, ReactElementType, ElementType } from 'shared/ReactTypes';
 // 定义 reactElement 构造函数
 const reactElement = function (type: Type, key: Key, ref: Ref, props: Props): ReactElementType {
-    // 定义一个reactElement
+    // 定义一个 reactElement 使用的数据结构
     const element = {
         // 内部使用的字段
         // 区分这种数据结构是否为 reactElement
